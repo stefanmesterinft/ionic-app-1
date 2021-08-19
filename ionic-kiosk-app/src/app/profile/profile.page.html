@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end" class="ion-margin-horizontal">
+        <ion-icon name="create-outline" (click)="changeEditMode()" *ngIf="!this.editMode"></ion-icon>
+        <ion-button (click)="changeEditMode()" *ngIf="this.editMode" color="primary">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class='profile-logo-bg'>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-img [src]="profileInfo.value.avatarURL || ''" class="logo" (click)="selectImageSourceAlert()"></ion-img>
+      </ion-col>
+      <ion-col></ion-col>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#121212" fill-opacity="1" d="M0,96L720,64L1440,192L1440,320L720,320L0,320Z"></path></svg>
+    </ion-row>
+    <ion-row class=" ion-no-padding ion-no-margin">
+      <ion-col class=" ion-no-padding ion-no-margin">
+        <h1 class="ion-text-center ion-no-padding ion-no-margin">{{profileInfo.value.firstName }} {{profileInfo.lastName}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="ion-margin-top" *ngIf="!editMode">
+    <ion-row>
+      <ion-col>
+        <h3 class="ion-margin-horizontal">Account Info</h3>
+        <ion-item>
+          <ion-label position="stacked">First Name</ion-label>
+          <ion-input value="{{ profileInfo.value.firstName }}" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Last Name</ion-label>
+          <ion-input value="{{ profileInfo.value.lastName }}" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input value="{{ profileInfo.value.email }}" readonly></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3 class="ion-margin-horizontal">Personal Info</h3>
+        <ion-item>
+          <ion-label position="stacked">Address Line 1</ion-label>
+          <ion-input value="{{ profileInfo.value.address1 }}" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Address line 2</ion-label>
+          <ion-input value="{{ profileInfo.value.address2 }}" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Phone number</ion-label>
+          <ion-input value="{{ profileInfo.value.phoneNumber }}" readonly></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Postal code</ion-label>
+          <ion-input value="{{ profileInfo.value.postalCode }}" readonly></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="ion-margin-top" *ngIf="editMode">
+    <ion-row>
+      <ion-col>
+        <h3 class="ion-margin-horizontal">Account Info</h3>
+        <ion-item>
+          <ion-label position="stacked">First Name</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.firstName" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Last Name</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h3 class="ion-margin-horizontal">Personal Info</h3>
+        <ion-item>
+          <ion-label position="stacked">Address Line 1</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.address1"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Address line 2</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.address2"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Phone number</ion-label>
+          <ion-input [(ngModel)]=" profileInfo.phoneNumber"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Postal code</ion-label>
+          <ion-input [(ngModel)]="profileInfo.postalCode"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col size="6" style="display: flex; justify-content:space-around;">
+        <ion-button (click)="save()">Save</ion-button>
+        <ion-button (click)="changeEditMode()">Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

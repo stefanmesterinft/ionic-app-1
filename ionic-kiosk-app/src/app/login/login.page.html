@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+  <form [formGroup]="form" autocomplete="off" (ngSubmit)="submit()">
+    <ion-row>
+      <ion-col ></ion-col>
+      <ion-col style="display: flex;justify-content: center;">
+        <ion-img src="assets/logo.png" class="logo" ></ion-img>
+      </ion-col>
+      <ion-col ></ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-col>
+          <ion-item>
+            <ion-label for="email" position="floating" >Email</ion-label>
+            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="password" position="floating" >Password</ion-label>
+            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-col>
+        <ion-button type="submit" style="display: flex;align-items:center">Login</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button style="display: flex;align-items:center" [routerLink]="['/register']">Register</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button style="display: flex;align-items:center">Recover Password</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  </ion-grid>
+</ion-content>
