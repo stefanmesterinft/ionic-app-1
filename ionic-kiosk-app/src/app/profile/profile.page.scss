@@ -1,0 +1,25 @@
+.logo{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: 8px solid #ffffff;
+  background-color: #ffffff;
+}
+
+.profile-logo-bg svg{
+  display:block;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  margin-top: -60px;
+}
+
+.profile-logo-bg{
+  background: rgb(89,0,130);
+  background: linear-gradient(90deg, rgba(89,0,130,1) 0%, rgba(87,0,185,1) 0%, rgba(93,0,168,1) 100%);
+}
+
+ion-button{
+  --background: #5c00ad;
+  --border-radius: 20px;
+}
